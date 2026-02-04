@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mythili 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #e0c3fc);
+    overflow-x: hidden;
+    text-align: center;
+    color: #4b004b;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+.photos {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.photos img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.buttons {
+    margin-top: 30px;
+    position: relative;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#yesBtn {
+    background-color: #ff4d88;
+    color: white;
+}
+
+#noBtn {
+    background-color: #ccc;
+    position: absolute;
+}
+
+#celebration {
+    display: none;
+}
+
+.hearts span {
+    position: fixed;
+    bottom: -20px;
+    animation: float 6s linear infinite;
+    font-size: 20px;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5f4e3c7c0c.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id="main">
+    <h1>Hey Mythili 💖</h1>
+    <p>
+        I made something just for you…<br>
+        You make my days brighter, my laughs louder,<br>
+        and my heart happier 🥰
+    </p>
+
+    <div class="photos">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e">
+    </div>
+
+    <h1>Will you be my Valentine? 🌹</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">YES 💕</button>
+        <button id="noBtn">NO ❌</button>
+    </div>
+</div>
+
+<div class="container" id="celebration">
+    <h1>YAYYY!! 🥰🎉</h1>
+    <p>
+        Best decision ever 💖<br>
+        I can’t wait to make more memories with you, Mythili 💕
+    </p>
+</div>
+
+<div class="hearts"></div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const main = document.getElementById("main");
+const celebration = document.getElementById("celebration");
+const heartsContainer = document.querySelector(".hearts");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+});
+
+yesBtn.addEventListener("click", () => {
+    main.style.display = "none";
+    celebration.style.display = "flex";
+    startHearts();
+});
+
+function startHearts() {
+    for (let i = 0; i < 40; i++) {
+        const heart = document.createElement("span");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        heartsContainer.appendChild(heart);
+    }
+}
+</script>
+
+</body>
+</html>
